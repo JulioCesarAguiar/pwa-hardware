@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#007bff"/>
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="src/css/styles.css">
+    <title>PWA Geolocation</title>
+</head>
+<body>
+  <div class="card text-center">
+    <h1 class="mb-4">Buscar Localização</h1>
+
+    <div class="button-container">
+        <button id="getLocation" class="btn btn-custom">Buscar Localização</button>
+    </div>
+    <p id="locationStatus" class="mt-3"></p>
+    <p id="placeName" class="mt-3"></p> <!-- Para exibir o nome do lugar -->
+    <div id="map"></div>
+</div>
+
+    <script src="src/script.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDFwvjj6Pw4dbqDFNLzIqfUtIsmMAGt80Q"></script>
+    <script>
+      // Registrar o service worker
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/service-worker.js')
+        .then(reg => console.log('Service Worker registrado com sucesso.', reg))
+        .catch(err => console.log('Erro ao registrar o Service Worker.', err));
+      }
+    </script>
+</body>
+</html>
